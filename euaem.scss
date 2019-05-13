@@ -1,0 +1,557 @@
+// Bootstrap variables
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #373a3c !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #1177d1 !default;
+$indigo:  #6610f2 !default;
+$purple:  #613d7c !default;
+$pink:    #e83e8c !default;
+$red:     #d9534f !default;
+$orange:  #f0ad4e !default;
+$yellow:  #ff7518 !default;
+$green:   #5cb85c !default;
+$teal:    #20c997 !default;
+$cyan:    #5bc0de !default;
+
+$azul-uni:                  #043673 !default;
+$azul-uni-dark:             #003577 !default;
+$naranja-uni:               #f1563f !default;//#f23518 !default;
+$naranja-uni-dark:          #cc2610 !default;
+$verde-uni:                 #368607 !default;
+$verde-uni-dark:            #2a6605 !default;
+$primary:       $azul-uni !default;
+$secondary:     $verde-uni !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          #9b9eab /*$gray-800*/ !default;
+
+// Options
+$enable-rounded: false !default;
+
+// Body
+$body-color:    $gray-800 !default;
+
+// Fonts
+$font-size-base: 0.9375rem !default;
+$headings-font-weight:   300 !default;
+
+// Tables
+$table-bg:                      transparent !default;
+$table-bg-accent:               #fafafa !default;
+$table-bg-hover:                lighten($primary, 55%) !default;
+$table-bg-active:               $table-bg-hover !default;
+$table-border-color:            #f4f4f4 !default;
+//
+
+// Navbar
+$navbar-light-color:                rgba(0, 0, 0, .535) !default;
+$navbar-light-hover-color:          #fff !default;
+$navbar-light-active-color:         #fff !default;
+
+// Breadcrumbs
+$breadcrumb-padding-y:              .25rem !default;
+$breadcrumb-padding-x:              0 !default;
+$breadcrumb-item-padding:           .5rem !default;
+$breadcrumb-margin-bottom:          0 !default;
+$breadcrumb-bg:                     transparent !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-divider-rtl: "/" !default;
+
+// Alerts
+$alert-border-width:                0 !default;
+
+$theme-colors: (
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+    info: $info,
+    warning: $orange,
+    danger: $danger,
+    light: $gray-100,
+    dark: #9b9eab// $gray-800
+);
+
+// Import FontAwesome.
+@import "fontawesome";
+
+// Import All of Bootstrap
+@import "bootstrap";
+
+// Import Core moodle CSS
+@import "moodle";
+
+// Preset CSS
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+//Navigation bar identity.
+.navbar-light {
+    background-color: $primary !important;
+    border-bottom: $border-width solid $azul-uni-dark !important; //#e5e5e5;
+    .userbutton {
+      .mr-1, .mx-1 {
+        margin-right: 1rem !important;
+      }
+      a {
+          color : #EEE;
+      }
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar-brand {
+        padding-left: .8rem;
+        padding-right: .8rem;
+        margin-right: .5rem;
+        //Ancho del segmento de la palabra inicio
+        width: 145px;
+        font-size: 1rem;
+        color: #dce4ef;
+        //background-color: $azul-uni;
+        background-image: url(../../../euaem/pix/logo_euaem_linea.svg);
+        background-size: 90px 32px;
+        background-repeat: no-repeat;
+        //transform: translate(-8px, -8px);
+        @include hover-focus {
+            color: #fff; //$primary;
+            text-shadow: 0px 0px 15px hsla(209, 100%, 50%, 0.9);
+        }
+        &.has-logo {
+            color: #dce4ef; //$primary;
+            background-color: transparent;
+            @include hover-focus {
+                color: #fff; //$primary;
+                text-shadow: 0px 0px 15px hsla(209, 100%, 50%, 0.9);
+            }
+        }
+    }
+
+    .navbar-nav {
+        .nav-item + .nav-item {
+            margin-left: .5rem;
+        }
+        .nav-link {
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            color: #b3bbc5;
+            font-weight: 500;
+            @include hover-focus {
+                color: $white; //$primary;
+                text-shadow: 0px 0px 15px hsla(209, 100%, 50%, 0.9);
+            }
+        }
+    }
+}
+//
+
+//Engranes de los bloques
+.block{
+  .action-menu {
+    color: $primary;
+    @include hover-focus {
+      color: $verde-uni;
+    }
+  }
+  .block-controls{
+    .dropdown-toggle {
+        color: $primary;
+        @include hover-focus {
+          color: $verde-uni;
+        }
+    }
+  }
+}
+//
+//Engranes del bloque principal
+.context-header-settings-menu, .region-main-settings-menu{
+  .action-menu {
+    .dropdown-toggle {
+      color: $primary;
+      @include hover-focus {
+        color: $verde-uni;
+      }
+    }
+    .dropdown-menu{
+        .dropdown-item {
+          &:hover {
+              background-color: $verde-uni;
+              a {
+                color: $white;
+              }
+          }
+          &:focus {
+            background-color: $azul-uni;
+          }
+        }
+    }
+  }
+}
+//
+//Edit y engranes al activar edicion
+a{
+  .action-menu .dropdown-toggle {
+    color: $primary;
+    @include hover-focus {
+      color: $verde-uni;
+      text-decoration: underline; //$primary;
+    }
+  }
+}
+//
+.action-menu .dropdown-toggle {
+    color: $primary;
+    @include hover-focus {
+        color: $verde-uni;
+        text-decoration: underline; //$primary;
+    }
+}
+//
+
+//Iconos de edit también
+.format-tiles .course-content .icon, .format-tiles .iconpickericons .icon, .format-site .iconpickericons .icon {
+    color: inherit !important;
+}
+//
+
+// User picture.
+.userpicture {
+    border-radius: 50%;
+}
+//
+
+//Nav SideBar
+
+//
+#nav-drawer {
+      background-color: #ccd1d8;
+  .list-group-item {
+    //&:focus,
+    &:hover {
+      color            : #FFF;
+      background-color : $verde-uni; //#2B7DB4;
+    }
+  }
+}
+//
+
+//links
+
+/*/
+.nav-link {
+  &:focus, &:hover {
+      color: $verde-uni;
+  }
+}
+/*/
+
+//
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #dce4ef; //$primary;
+  @include hover-focus {
+      color: #fff; //$primary;
+      text-shadow: 0px 0px 15px hsla(209, 100%, 50%, 0.9);
+  }
+}
+//
+
+//
+a:hover {
+    color: $verde-uni;
+    text-decoration: underline;
+}
+//
+
+//Primary Button
+.btn-primary {
+  color: #fff; //$primary;
+  text-shadow: 0px 0px 15px hsla(209, 100%, 50%, 0.9);
+  background-color: $primary;
+  border-color: $azul-uni-dark;
+  &:focus, &:hover {
+      color            : #fff;
+      text-shadow: 0px 0px 15px hsla(20, 100%, 53%, 0.9);
+      text-weight: bold;
+      background-color : $verde-uni; //#2B7DB4;
+      border-color: $verde-uni-dark;
+  }
+}
+//
+
+//Menu button
+.btn-secondary, .btn-default {
+    color: #fff;
+    background-color: $primary;
+    border-color: $azul-uni-dark;
+    margin: 3px;
+    &:focus, {
+        //color            : #EEEEEE;
+        background-color : $primary; //#2B7DB4;
+        box-shadow: 0 0 0 0.2rem transparent !important;
+    }
+    &:hover {
+        //color            : #EEEEEE;
+        background-color : $verde-uni; //#2B7DB4;
+    }
+}
+//
+
+/*/Nav bar
+.navbar-light {
+    background-color : $primary;
+    border-bottom    : 1px solid $azul-uni-dark; //#004B72;
+    a {
+        color : #EEE;
+    }
+}
+/*/
+@include bg-variant(".bg-gray", $gray-200);
+
+//Resaltado
+.dropdown-item {
+  &:hover {
+      color            : $white;
+      background-color: $verde-uni;
+  }
+  &:focus {
+      color            : $white;
+      background-color: $azul-uni;
+  }
+}
+//
+
+//Login
+
+//
+.usermenu {
+  //User name
+  .action-menu .dropdown-toggle {
+      color: #dde;
+      @include hover-focus {
+          color: #fff; //$primary;
+          text-decoration: none;
+      }
+  }
+  //
+  .login{
+    color: $white;
+    a {
+        color : #EEE;
+        &:focus, &:hover {
+            color: $verde-uni;
+        }
+    }
+  }
+}
+//
+
+//Cards
+
+//
+.card-block {
+  .card-header {
+    background-color: $primary;
+    color: $white;
+  }
+}
+//
+
+.card-body {
+  h5 {
+    font-weight: 500;
+  }
+}
+
+
+//Footer
+
+//Alinear al centro
+#page-footer {
+    text-align: center;
+}
+//
+
+//Footnote en donde aparece el Creative commons
+.footnote {
+    text-align: center;
+    font-weight: 600;
+}
+//
+//
+.row-fluid {
+    display: inline-block;
+}
+//
+
+//Reemplazar moodle 3.5
+//
+.site-name {
+  visibility: hidden;
+  position: relative;
+  display: none;
+}
+
+.site-name:after {
+  visibility: visible;
+  position: absolute;
+  font-weight: bold;
+  font-size: 1rem;
+  //top: 0;
+  left: 90px;
+  right: 0;
+  content: "Inicio";
+}
+//
+
+//Reemplazar Nav icon
+/*/
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: " ";
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url(../../../euaem/pix/logo.svg);
+  background-size: 32px 32px;
+  transform: translate(-8px, -8px);
+}
+/*/
+
+//Imagen de fondo
+//
+#page {
+    background-image: url(../../../euaem/pix/icono_bg.png);
+    background-size: 400px;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+//
+
+//Bloques transparentes
+//
+.card,#page-enrol-users #filterform, .que .history, .userprofile .profile_tree section, .groupinfobox, .well {
+    background-color: hsla(0, 0%, 100%, 0.5);
+
+}
+//
+
+//circulito de duda
+//
+.text-info, .highlight {
+    color: $dark !important;
+}
+//
+
+//tags etiquetas
+
+//
+.tag-info {
+    background-color: $dark;
+    /*&:focus, &:hover {
+        color            : $white;
+        background-color: $verde-uni;
+    }*/
+}
+//
+
+//
+.label-info {
+    background-color: $dark;
+    &:focus, &:hover {
+        color            : $white;
+        background-color: $verde-uni;
+    }
+}
+//
+
+.label-info[href]{
+  &:focus, &:hover {
+      color            : $white;
+      background-color: $verde-uni;
+  }
+}
+//
+
+//Opciones de Mensajes y Calificaciones
+//Establece que ocupe todo el ancho
+.preferences-container .preference-table tr td:nth-child(even) {
+    width: 200px;
+}
+//Establece el ancho
+.col-6, .col-xs-6 {
+    flex: 0 0 50%;
+    max-width: 100%;
+}
+//
+
+//Cambia los botónes de actividad anterior y actividad siguiente
+.pull-right, .pull-left {
+  #next-activity-link, #prev-activity-link {
+      background-color: transparent;
+      //padding: 4px 8px;
+      //border-radius: 2px;
+      color: $primary;
+      font-weight: 600;
+      white-space: normal;
+  }
+}
+
+.course-content .single-section .section-navigation {
+  .mdl-left, .mdl-right{
+        &:not(:empty){
+          background-color: transparent!important;
+          a{
+            color: $primary !important;
+            font-weight: 600;
+            white-space: normal;
+          }
+        }
+  }
+}
+//
+
+//Cambio de ancho en el calificador de rúbrica
+
+  .path-mod-assign [data-region="grade-panel"] .fitem.has-popout {
+    //background-color: #fff;
+    //border: 1px solid rgba(0,0,0,.125);
+    //padding: 1.25rem;
+    //margin-bottom: 1rem;
+    left: 5%;
+    right: 5%;
+    overflow-wrap: break-word;
+  }
+
+//
+
+//Espaciado de color en el editor de texto
+.atto_menuentry {
+    font-size: medium;
+    padding: 3px;
+}
+
+.editor_atto_menu .dropdown-menu>li>a {
+    margin: 3px 6px;
+    display: inline-flex;
+}
+//
